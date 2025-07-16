@@ -2,7 +2,11 @@
 
 Flight::Flight(QWidget *parent)
 {
+    Q_UNUSED(parent)
+}
 
+Flight::~Flight()
+{
 }
 LinkList Flight::Init()
 {

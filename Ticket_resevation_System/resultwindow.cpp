@@ -33,7 +33,7 @@ int n;
 set<QString> cityName;  //存储所有城市
 map<QString,int> citymp;  //将城市名映射成数字
 int G[MAXV][MAXV],d[MAXV],weight[MAXV];
-bool visit[MAXV]={false};
+bool visited[MAXV]={false};
 vector<int> pre[MAXV];
 vector<int> path,tempPath;
 
@@ -57,7 +57,11 @@ ResultWindow::ResultWindow(QWidget *parent) :
           model->setQuery(query);
           QSqlQuery sql;
           sql.exec(query);
-          if(sql.size()!=0)
+          if(sql.next())
+          {
+              sql.first(); // 重置到第一条记录
+          }
+          if(sql.isValid())
           {
               ui->tableView->setModel(model);
               ui->tableView->verticalHeader()->hide();
@@ -259,7 +263,7 @@ void ResultWindow::Dijsktra(int s)
            int u=-1,min=INF;
            for(int j=0;j<=n;j++)
            {
-               if(visit[j]==false&&d[j]<min)
+               if(visited[j]==false&&d[j]<min)
                {
 
                     u=j;
@@ -268,11 +272,11 @@ void ResultWindow::Dijsktra(int s)
            }
             if(u==-1)
                 return;
-            visit[u]=true;
+            visited[u]=true;
             qDebug()<<"u: "<<u;
             for(int v=0;v<=n;v++)
             {
-                if(visit[v]==false&&G[u][v]!=INF)
+                if(visited[v]==false&&G[u][v]!=INF)
                 {
                     if(G[u][v]+d[u]<d[v])
                    {
@@ -367,4 +371,22 @@ void ResultWindow::on_listView_2_doubleClicked(const QModelIndex &index)
            }
 
        };
+}
+
+void ResultWindow::on_tableView_2_activated(const QModelIndex &index)
+{
+    // 表格视图2激活事件的实现
+    qDebug() << "TableView 2 activated, row:" << index.row() << "column:" << index.column();
+}
+
+void ResultWindow::on_tableView_2_clicked(const QModelIndex &index)
+{
+    // 表格视图2点击事件的实现
+    qDebug() << "TableView 2 clicked, row:" << index.row() << "column:" << index.column();
+}
+
+void ResultWindow::on_listView_2_clicked(const QModelIndex &index)
+{
+    // 列表视图2点击事件的实现
+    qDebug() << "ListView 2 clicked, row:" << index.row();
 }

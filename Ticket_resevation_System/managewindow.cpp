@@ -223,3 +223,24 @@ void ManageWindow::on_pushButton_7_clicked()
        p=p->next;
    }
 }
+
+void ManageWindow::on_pushButton_2_clicked()
+{
+    // 按钮2点击事件的实现
+    // 可以根据UI界面的具体功能来实现
+    qDebug() << "Button 2 clicked";
+}
+
+void ManageWindow::on_pushButton_3_clicked()
+{
+    // 按钮3点击事件的实现
+    // 可以根据UI界面的具体功能来实现
+    qDebug() << "Button 3 clicked";
+}
+
+void ManageWindow::on_pushButton_clicked(bool checked)
+{
+    // 带bool参数的按钮点击事件实现
+    // 这通常用于可切换的按钮（如复选框按钮）
+    qDebug() << "Button clicked with checked state:" << checked;
+}

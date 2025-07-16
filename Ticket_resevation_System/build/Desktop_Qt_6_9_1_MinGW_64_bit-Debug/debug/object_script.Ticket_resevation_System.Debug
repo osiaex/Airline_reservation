@@ -1,0 +1,10 @@
+debug/main.o
+debug/homewindow.o
+debug/managewindow.o
+debug/querywindow.o
+debug/resultwindow.o
+debug/flights.o
+debug/moc_homewindow.o
+debug/moc_managewindow.o
+debug/moc_querywindow.o
+debug/moc_resultwindow.o

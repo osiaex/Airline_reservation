@@ -1,0 +1,10 @@
+release/main.o
+release/homewindow.o
+release/managewindow.o
+release/querywindow.o
+release/resultwindow.o
+release/flights.o
+release/moc_homewindow.o
+release/moc_managewindow.o
+release/moc_querywindow.o
+release/moc_resultwindow.o

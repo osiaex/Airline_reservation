@@ -1,6 +1,6 @@
 #include "homewindow.h"
 #include <QApplication>
-#include<QTextCodec>
+//#include<QTextCodec>
 #include<QDate>
 #include "flights.h"
 
